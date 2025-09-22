@@ -288,24 +288,14 @@ nav a:hover {
 
 /* Alineación específica para renovables (4 columnas en desktop) */
 .renewables {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  background-color: #f1fdf3;
-  padding: 2rem;
-  border-radius: 12px;
-}
-
-@media (max-width: 992px) {
-  .renewables {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .renewables {
-    grid-template-columns: 1fr;
-  }
+  display: grid;
+  /* Esta línea se encarga de todo */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  /* Mantiene los estilos que ya tenías */
+  background-color: #f1fdf3;
+  padding: 2rem;
+  border-radius: 12px;
 }
 
 .energy-card {
@@ -2143,4 +2133,5 @@ tr:nth-child(even) {
     height: 12px;
     margin-right: 5px;
     border-radius: 50%;
+
 }
