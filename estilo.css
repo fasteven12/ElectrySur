@@ -74,6 +74,15 @@ header {
 .logo span {
   color: var(--light-teal);
 }
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
 
 /* === Navigation === */
 nav ul {
@@ -157,7 +166,7 @@ nav a:hover {
 
 .dropdown-menu a:hover {
   background-color: var(--light-teal);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 /* Flecha del dropdown */
@@ -212,11 +221,11 @@ nav a:hover {
 .hero_biomasa h1 {
   font-size: 3rem;
   color: rgb(212, 199, 199);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;x
 }
 .hero_gas h1 {
-  font-size: 3rem;
-  color: rgb(212, 199, 199);
+  font-size :3rem;
+  color:rgb(212, 199, 199);
   margin-bottom: 1.5rem;
 }
 .hero_carbon h1 {
@@ -288,14 +297,14 @@ nav a:hover {
 
 /* Alineación específica para renovables (4 columnas en desktop) */
 .renewables {
-  display: grid;
-  /* Esta línea se encarga de todo */
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-  /* Mantiene los estilos que ya tenías */
-  background-color: #f1fdf3;
-  padding: 2rem;
-  border-radius: 12px;
+ display: grid;
+
+ grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+ gap: 2rem;
+ /* Mantiene los estilos que ya tenías */
+ background-color: #f1fdf3;
+ padding: 2rem;
+ border-radius: 12px;
 }
 
 .energy-card {
@@ -660,13 +669,20 @@ footer {
 
 /* === Responsive Design === */
 @media (max-width: 992px) {
-  .detail-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .detail-media {
-    order: -1;
-  }
+    .detail-content {
+        /* Fuerza una sola columna y elimina la configuración de grid anterior */
+        display: block;
+    }
+    .detail-media {
+        /* Asegura que la imagen/video siempre se vea bien en móviles */
+        width: 100%;
+        margin-bottom: 2rem; /* Agrega un espacio para separar del texto */
+        order: -1; /* Asegura que la imagen/video esté en la parte superior */
+    }
+    .detail-media img {
+        width: 100%;
+        height: auto;
+    }
 }
 
 @media (max-width: 768px) {
@@ -2133,5 +2149,23 @@ tr:nth-child(even) {
     height: 12px;
     margin-right: 5px;
     border-radius: 50%;
-
 }
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 de aspecto, para videos de YouTube */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
